@@ -1,0 +1,40 @@
+<!-- 1. Load the official Firebase SDK Modules from a CDN -->
+<script type="module">
+import { initializeApp } from "https://firebase-app.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://firebase-auth.js";
+
+
+  // 2. Paste your exact configuration details here
+  const firebaseConfig = {
+    apiKey: "AIzaSyCsVFxlWhfnogijECMRgsUBFDGPyi4LjVo",
+    authDomain: "san-juan-academy.firebaseapp.com",
+    projectId: "san-juan-academy",
+    appId: "1:579054522531:web:1b03832b8c43042e79af16"
+  };
+
+  // 3. Initialize Firebase and Google Authentication
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // 4. Create your login function for your button click
+  window.loginWithGoogle = function() {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log("Successfully logged in:", user.displayName);
+        
+        // Check if the logging-in user is YOU (the admin)
+        if (user.email === "gerardogala1959@gmail.com") {
+          alert("Welcome Admin! Access Granted.");
+          // Trigger your function to load the membership list here
+        }
+      })
+      .catch((error) => {
+        console.error("Login failed:", error.message);
+      });
+  }
+</script>
+
+<!-- 5. Your visual button in HTML -->
+<button onclick="loginWithGoogle()">Sign in with Google</button>
