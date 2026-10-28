@@ -134,6 +134,63 @@ body, p, li, span, div, strong, em, blockquote, label,
 }
 
 /* ==========================================================================
+   TABLES (replaces the Bootstrap table styles)
+   ========================================================================== */
+
+table {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #006abc;
+    text-align: left;
+    vertical-align: top;
+}
+
+caption {
+    caption-side: top;
+    padding: 0.5rem 0;
+    text-align: left;
+    font-weight: 600;
+}
+
+th, td {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #006abc;
+}
+
+/* Header row: solid blue with white text, matching the buttons */
+th, thead td {
+    background-color: #006abc;
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Body cells: blue text, forced to beat any other color rule */
+td, tbody th {
+    color: #006abc !important;
+}
+
+/* Keep header cells inside tbody white on blue (e.g. first-column headers) */
+tbody th {
+    background-color: #006abc;
+    color: #ffffff !important;
+}
+
+/* Light blue stripes for readability */
+tbody tr:nth-child(even) td {
+    background-color: #e6f0f8;
+}
+
+/* Small screens: let wide tables scroll sideways instead of breaking the layout */
+@media (max-width: 37.4375em) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* ==========================================================================
    FORCE UNIVERSAL GEOMETRIC SQUARED OVERRIDE
    ========================================================================== */
 
