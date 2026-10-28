@@ -118,7 +118,8 @@ button:focus,
    ========================================================================== */
 
 body, p, li, span, div, strong, em, blockquote, label,
-.card, .card * {
+.card, .card *,
+.text-muted, small, .small {
     color: #006abc !important;
 }
 
